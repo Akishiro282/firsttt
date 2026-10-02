@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>???</title>
+</head>
+<style>
+    html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    }
+      
+    body {
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        overflow-x: hidden;
+     
+    }
+
+    .title {
+        text-align: center;
+        color: #574f56;
+        font-size: 32px;
+        margin-top: 50px;
+        font-family: 'Verdana', 'Geneva', sans-serif;
+    }
+
+    .envelope-button{
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #574f56;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        transition: 1.1s;
+        opacity: 1;
+
+      
+    }
+
+    .envelope-button:hover {
+        background-color: #464346;
+        transform: scale(1.1);
+        transform: translateY(-3px);
+    }
+    .envelope-button.show {
+        transform: translateY(10vh);
+        opacity: 0;
+    }
+
+
+
+    /* img {
+        display: block;
+        margin: 20px auto;
+        max-width: 80%;
+        height: auto;
+    } */
+
+    .message {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+        color: #252425;
+        font-size: 16px;
+        line-height: 1.5;
+        z-index: 1;
+    }
+    
+    #birthday-card
+    {
+        background-color: #ccc3cb;
+        width: 500px;
+        min-height: 500px;
+        border: 2px solid #574f56;
+        border-radius: 5px;
+        margin-left: auto;              
+        margin-right: auto;
+        margin-top: -55px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        transform: translateY(-100vh);
+        opacity: 0;
+        transition: transform 1s ease, opacity 1.5s ease;       /*Slide down effect*/
+        
+    }
+
+    #birthday-card.show {
+        transform: translateY(0);
+        opacity: 1;
+        transition: opacity 1;
+ 
+    }
+    
+
+
+    @keyframes cake1 {
+
+         0% {
+        transform: translateX(-15px);
+    }
+
+    100% {
+        transform: translateX(470px);
+    }
+
+    }
+
+    @keyframes cake2 {
+
+         0% {
+        transform: translateX(15px);
+    }
+
+        100% {
+                transform: translateX(-460px);
+    }
+    
+}
+    @keyframes cake3 {
+
+        0% {
+        transform: translateX(-15px);}
+
+        100% {
+                transform: translateX(430px);
+        }
+    }
+
+    @keyframes cake4 {
+
+        0% {
+        transform: translateX(15px);}
+
+        100% {
+                transform: translateX(-445px);
+        }
+    }
+
+    @keyframes cake5 {
+
+        0% {
+        transform: translateX(-15px);}
+
+        100% {
+                transform: translateX(370px);
+        }
+    }
+    @keyframes cake6 {
+
+        0% {
+        transform: translateX(15px);}
+
+        100% {
+                transform: translateX(-420px);
+        }
+    }
+    @keyframes cake7 {
+
+        0% {
+        transform: translateX(-75px);}
+
+        100% {
+                transform: translateX(390px);
+        }
+    }
+
+    @keyframes cake8 {
+
+        0% {
+        transform: translateX(90px);}
+
+        100% {
+                transform: translateX(-375px);
+        }
+    }
+
+    @keyframes cake9 {
+
+        0% {
+        transform: translateX(-15px);}
+
+        100% {
+                transform: translateX(450px);
+        }
+    }
+
+    @keyframes cake11 {
+
+        0% {
+        transform: translateX(-430px);}
+
+        100% {
+                transform: translateX(50px);
+        }
+    }
+    @keyframes cake12 {
+
+        0% {
+        transform: translateX(240px);}
+
+        100% {
+                transform: translateX(-208px);
+        }
+    }
+
+    @keyframes cake13 {
+
+        0% {
+        transform: translateX(-250px);}
+
+        100% {
+                transform: translateX(160px);
+        }
+    }
+
+    @keyframes cake14 {
+
+        0% {
+        transform: translateX(250px);}
+
+        100% {
+                transform: translateX(-135px);
+        }
+    }
+    @keyframes cake15 {
+
+        0% {
+        transform: translateX(-300px);}
+
+        100% {
+                transform: translateX(160px);
+        }
+    }
+
+    /* @keyframes cake16 {
+
+        0% {
+        transform: translateX(300px);}
+
+        100% {
+                transform: translateX(-160px);
+        }
+    } */
+
+    @keyframes cake17 {
+
+        0% {
+        transform: translateX(-160px);}
+
+        100% {
+                transform: translateX(320px);
+        }
+    }
+
+    /* @keyframes cake18 {
+
+        0% {
+        transform: translateX(160px);}
+
+        100% {
+                transform: translateX(-320px);
+        }
+    } */
+
+    @keyframes cake19 {
+
+        0% {
+        transform: translateX(135px);}
+
+        100% {
+                transform: translateX(-333px);
+        }      
+    }
+
+    /* @keyframes cake20 {
+
+        0% {
+        transform: translateX(-135px);}
+
+        100% {
+                transform: translateX(333px);
+        }      
+    } */
+
+    @keyframes cake21 {
+
+        0% {
+        transform: translateX(220px);}
+
+        100% {
+                transform: translateX(-230px);
+        }      
+    }
+
+    /* @keyframes cake22 {
+
+        0% {
+        transform: translateX(-220px);}
+
+        100% {
+                transform: translateX(230px);
+        }      
+    }
+
+    @keyframes cake23 {
+
+        0% {
+        transform: translateX(200px);}
+
+        100% {
+                transform: translateX(-250px);
+        }      
+    } */
+
+    @keyframes cake24 {
+
+        0% {
+        transform: translateX(460px);}
+
+        100% {
+                transform: translateX(-8px);
+        }      
+    }
+
+
+
+
+    /* start of symbols */
+
+    .s1 {
+            animation-duration: 1s;
+            position: absolute;
+            top: 40px;
+            left: 11px;
+            transform: rotate(-10deg);
+            z-index: 0;
+            animation-name: cake1;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 8s;
+          
+          
+    }   
+    .s2 {
+            position: absolute;
+            top: 20px;
+            right: 11px;
+            transform: rotate(10deg);
+            z-index: 0;
+            animation-name: cake2;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 8s;
+          
+    }
+    .s3 {
+            position: absolute;
+            bottom: 5px;
+            left: 50px;
+            transform: rotate(-15deg);
+            z-index: 0;
+            animation-name: cake3;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 9s;
+        
+    }
+    .s4 {
+            position: absolute;
+            bottom: 30px;
+            right: 25px;
+            transform: rotate(15deg);
+            z-index: 0;
+            animation-name: cake4;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 8s;
+    }
+    .s5{
+            position: absolute;
+            top: 85px;
+            left: 105px;
+            transform: rotate(15deg);
+            z-index: 0;
+            animation-name: cake5;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 9s;
+    }
+    .s6{
+            position: absolute;
+            top:110px;
+            right: 50px;
+            transform: rotate(-15deg);
+            z-index: 0;
+            animation-name: cake6;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 6s;
+    }
+    .s7{
+            position: absolute;
+            bottom: 100px;
+            left: 90px;
+            transform: rotate(15deg);
+            z-index: 0;
+            animation-name: cake7;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 13s;
+    }
+    .s8{
+            position: absolute;
+            bottom: 120px;
+            right: 100px;
+            transform: rotate(-15deg);
+            z-index: 0;
+            animation-name: cake8;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 6s;
+    }
+    .s9{
+            position: absolute;
+            top: 150px;
+            left: 30px;
+            transform: rotate(8deg);
+            z-index: 0;
+            animation-name: cake9;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 7s;
+    }
+    .s11{
+            position: absolute;
+            top: 220px;
+            right: 30px;
+            transform: rotate(-15deg);
+            z-index: 0;
+                animation-name: cake11;
+                        animation-iteration-count: infinite;
+                        animation-timing-function: linear;
+                        animation-duration: 6.5s;
+    }
+    .s12{
+            position: absolute;
+            bottom: 1px;
+            left: 200px;
+            transform: rotate(10deg);
+            z-index: 0;
+            animation-name: cake12;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 6s;
+    }
+    .s13{
+            position: absolute;
+            bottom: 40px;
+            right: 150px ;
+            transform: rotate(-9deg);
+            z-index: 0;
+            animation-name: cake13;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 10s;
+    }
+    .s14{
+            position: absolute;
+            top: 180px;
+            left: 130px;
+            transform: rotate(10deg);
+            z-index: 0;
+            animation-name: cake14;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 13s;
+    }
+    .s15{
+            position: absolute;
+            top: 300px;
+            right: 150px;
+            transform: rotate(-10deg);
+            z-index: 0;
+            animation-name: cake15;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 11s;
+
+    }
+    /* 
+    .s16{
+            position: absolute;
+            bottom: center;
+            left: 110px;
+            transform: rotate(10deg);
+            z-index: 0;
+    } */
+    .s17{
+            position: absolute;
+            top: 1px;
+            left: 160px;
+            transform: rotate(-10deg);
+            z-index: 0;
+            animation-name: cake17;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 9s;
+    }
+
+    /* .s18{
+            position: absolute;
+            top: 90px;
+            right: center;
+            transform: rotate(10deg);
+            z-index: 0;
+    } */
+    .s19{
+            position: absolute;
+            top: 60px;
+            right: 130px;
+            transform: rotate(-10deg);
+            z-index: 0;
+            animation-name: cake19;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 6.5s;
+    }
+    /* .s20{
+            position: absolute;
+            bottom: 40px;
+            left: 125px;
+            transform: rotate(10deg);
+            z-index: 0;
+
+    } */
+    .s21{
+            position: absolute;
+            bottom: 70px;
+            right: center;
+            transform: rotate(-10deg);
+            z-index: 0;
+            animation-name: cake21;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 10s;
+
+    }
+    /* .s22{
+            position: absolute;
+            bottom: 100px;
+            left: 1px;
+            transform: rotate(10deg);
+            z-index: 0;
+
+        
+    }
+    .s23{
+            position: absolute;
+            bottom: 150px;
+            right: 1px;
+            transform: rotate(-10deg);
+            z-index: 0;
+
+    } */
+    .s24{
+            position: absolute;
+            top: 250px;
+            left: 1px;
+            transform: rotate(10deg);
+            z-index: 0;
+            animation-name: cake24;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 5s;
+    }
+    /* .s25{
+            position: absolute;
+            top: 180px;
+            right: 120px;
+            transform: rotate(-10deg);
+            z-index: 0;
+    } */
+    /* .s26{
+            position: absolute;
+            bottom: 170px;
+            left: 130px;
+            transform: rotate(10deg);
+            z-index: 0;
+    } */
+    /* .s27{
+            position: absolute;
+            bottom: 210px;
+            left: 90px;
+            transform: rotate(-10deg);
+            z-index: 0;
+            animation-name: cake27;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-duration: 5s;
+    }
+    .s28{
+            position: absolute;
+            top: 250px;
+            right: 140px;
+            transform: rotate(10deg);
+            z-index: 0;
+    }
+    .s29{
+            position: absolute;
+            bottom: 180px;
+            left: center;
+            transform: rotate(-10deg);
+            z-index: 0;
+    }
+    .s30{
+            position: absolute;
+            bottom: 185px;
+            left: 190px;
+            transform: rotate(10deg);
+            z-index: 0;
+    }
+    .s31{
+            position: absolute;
+            top: 170px;
+            left: center;
+            transform: rotate(-10deg);
+            z-index: 0;
+    }
+    .s32{
+            position: absolute;
+            top: 300px;
+            right: 1px;
+            transform: rotate(10deg);
+            z-index: 0; */
+    
+
+    /* end of symbols */
+
+</style>
+
+<body>
+
+    <h2 class="title">Can You Guess What is this About?</h2>
+    
+
+
+    <button class="envelope-button">✉️</button>
+
+
+
+
+        <div id="birthday-card">
+    
+        <div class="s1">🍰</div>
+         <div class="s2">🍰</div> 
+         <div class="s3">🍰</div>
+          <div class="s4">🍰</div>
+           <div class="s5">🍰</div>
+            <div class="s6">🍰</div>
+             <div class="s7">🍰</div>
+              <div class="s8">🍰</div>
+               <div class="s9">🍰</div>
+                <div class="s11">🍰</div>
+                 <!-- <p class="s12">🍰12</p> -->
+                  <!-- <p class="s13">🍰13</p> -->
+                   <div class="s14">🍰</div>
+                    <div class="s15">🍰</div>
+                     <!-- <p class="s16">🍰16</p> -->
+                      <div class="s17">🍰</div>
+                      <!-- <p class="s18">🍰18</p> -->
+                       <div class="s19">🍰</div>
+                        <!-- <p class="s20">🍰20</p> -->
+                         <div class="s21">🍰</div>
+                          <!-- <p class="s22">🍰22</p>
+                           <p class="s23">🍰23</p> -->
+                            <div class="s24">🍰</div>
+                             <!-- <p class="s25">🍰25</p> -->
+                              <!-- <p class="s26">🍰26</p> -->
+                               <!-- <p class="s27">🍰27</p> -->
+                                <!-- <p class="s28">🍰28</p> -->
+                                 <!-- <p class="s29">🍰29</p> -->
+                                  <!-- <p class="s30">🍰30</p>
+                                   <p class="s31">🍰31</p>
+                                    <p class="s32">🍰32</p> -->
+
+
+
+
+        <div class="message">
+
+            <p>
+               asdsdasdsadsad
+            </p>
+     
+            <p>
+             asdasdsadsadsadsadsada
+            </p>
+       
+            <p>
+               asdsadsadsadsad
+            </p>
+            
+        
+
+
+    </div>
+
+       
+    <script>
+        const envelopeButton = document.querySelector('.envelope-button');
+        const birthdayCard = document.getElementById('birthday-card');
+        const message = document.querySelector('.message');
+        const title = document.querySelector('.title');
+
+        envelopeButton.addEventListener('click', () => {
+            birthdayCard.classList.add('show');
+            envelopeButton.classList.add('show');
+            message.style.display = 'block';
+            title.textContent = "HAPPY BIRTHDAY!";
+        });
+
+
+
+
+
+    </script>
+
+    
+
+</body>
+</html>
